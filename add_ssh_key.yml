@@ -14,7 +14,7 @@
       cisco.ios.ios_user:
         provider:
           username: ansible
-          password: {{ password }}
+          password: "{{ password }}"
           authorized: yes
         sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
         state: present
