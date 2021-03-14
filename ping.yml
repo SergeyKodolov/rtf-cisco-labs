@@ -1,10 +1,14 @@
 ---
 
 - name: Ping from routers
-  hosts: routers
+  hosts: all
 
   tasks:
     - name: Ping 8.8.8.8
       cisco.ios.ios_ping:
         dest: 8.8.8.8
         state: present
+      register: output
+
+    - name: Print information
+      debug: var=output.stdout_lines
