@@ -1,7 +1,7 @@
 ---
 
   - name: Adding server key
-    hosts: routers
+    hosts: all
 
     vars_prompt:
       - name: new_password
@@ -20,4 +20,3 @@
           name: ansible
           configured_password: "{{ new_password }}"
           password_type: secret
-          
