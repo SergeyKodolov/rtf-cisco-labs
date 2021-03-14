@@ -2,20 +2,10 @@
 
   - name: Adding server key
     hosts: routers
-    gather_facts: false
-  
-    vars_prompt:
-      - name: password
-        prompt: Password
-        private: yes
   
     tasks:
       - name: Send Ansible server key
         cisco.ios.ios_user:
-          provider:
-            username: ansible
-            password: "{{ password }}"
-            authorized: yes
           name: ansible
           sshkey: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
           state: present
