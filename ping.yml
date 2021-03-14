@@ -11,4 +11,4 @@
       register: output
 
     - name: Print information
-      debug: var=output.stdout_lines
+      debug: var=output.rtt
