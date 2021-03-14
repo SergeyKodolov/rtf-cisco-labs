@@ -1,10 +1,10 @@
 ---
 
-- name: Ping routers
+- name: Ping from routers
   hosts: routers
 
   tasks:
-    - name: Ping
+    - name: Ping 8.8.8.8
       cisco.ios.ios_ping:
         dest: 8.8.8.8
         state: present
