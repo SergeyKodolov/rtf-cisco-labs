@@ -1,3 +1,71 @@
-[routers]
-c2821 ansible_host=10.40.80.70
-c2801 ansible_host=10.40.80.2
+[edge_routers]
+L2_router_344 ansible_host=10.40.80.9
+Edge_router_224 ansible_host=10.40.76.103
+
+[lab_routers]
+R1 ansible_host=10.40.68.3
+R2 ansible_host=10.40.68.5
+R4 ansible_host=10.40.68.7
+R4 ansible_host=10.40.68.9
+R5 ansible_host=10.40.68.11
+R6 ansible_host=10.40.68.13
+R7 ansible_host=10.40.68.15
+R8 ansible_host=10.40.68.17
+R9 ansible_host=10.40.68.19
+R10 ansible_host=10.40.68.21
+
+[lab_switches]
+SW1 ansible_host=10.40.68.4
+SW2 ansible_host=10.40.68.6
+SW4 ansible_host=10.40.68.8
+SW4 ansible_host=10.40.68.10
+SW5 ansible_host=10.40.68.12
+SW6 ansible_host=10.40.68.14
+SW7 ansible_host=10.40.68.16
+SW8 ansible_host=10.40.68.18
+SW9 ansible_host=10.40.68.20
+SW10 ansible_host=10.40.68.22
+
+[lab_equipment:children]
+lab_routers
+lab_switches
+
+[stand_1]
+R1
+SW1
+
+[stand_2]
+R2
+SW2
+
+[stand_3]
+R3
+SW3
+
+[stand_4]
+R4
+SW4
+
+[stand_5]
+R5
+SW5
+
+[stand_6]
+R6
+SW6
+
+[stand_7]
+R7
+SW7
+
+[stand_8]
+R8
+SW8
+
+[stand_9]
+R9
+SW9
+
+[stand_10]
+R10
+SW10
