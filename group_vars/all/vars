@@ -3,4 +3,3 @@ ansible_user: ansible
 ansible_connection: network_cli
 ansible_network_os: ios
 ansible_password: "{{ vault_ansible_password }}"
-  
