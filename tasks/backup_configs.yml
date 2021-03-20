@@ -13,7 +13,10 @@
 
     - name: Getting vlan.dat from switches
       cisco.ios.ios_vlans:
-        running_config: "{{ lookup('file', './backup/{{ inventory_hostname }}/vlan.dat') }}"
         state: parsed
+      register: after
       when: inventory_hostname in groups["lab_switches"]
+
+    - name: Save vlan.dat
+      local_action: copy content={{ after }} dest=./backup/{{ inventory_hostname }}/vlan.dat
       
