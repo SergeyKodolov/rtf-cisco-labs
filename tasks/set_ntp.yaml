@@ -12,5 +12,15 @@
       - name: Clock Timezone config
         cisco.ios.ios_config:
           lines:
-          - clock timezone YEKT 5 0
+            - clock timezone YEKT 5 0
           save_when: modified
+
+      - name: Check time
+        cisco.ios.ios_command:
+          commands:
+            - show ntp status
+            - show clock details
+          register: output
+            
+      - name: Print output
+        debug: var={{ output.stdout_lines }}
