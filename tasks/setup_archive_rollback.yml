@@ -11,6 +11,8 @@
               prompt: Create directory filename [backup]?
               answer: "
               "
+        register: result
+        failed_when: result.msg != "mkdir flash:backup\r\nCreate directory filename [backup]?  \r\n%Error Creating dir flash:backup (File exists)\r\nSW2_R224#"
             
       #- name: Clock Timezone config
       #  cisco.ios.ios_config:
