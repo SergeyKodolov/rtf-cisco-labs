@@ -19,5 +19,5 @@
 
     - name: Save vlan.dat file
       local_action: copy content={{ vlan }} dest=./backup/{{ inventory_hostname }}/vlan.dat
-      when: vlan.stdout not null
+      when: vlan.stdout != ""
       
