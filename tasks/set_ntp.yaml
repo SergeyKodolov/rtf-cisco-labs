@@ -4,7 +4,13 @@
     hosts: lab_equipment
   
     tasks:
-      - cisco.ios.ios_ntp:
+      - name: NTP server config
+        cisco.ios.ios_ntp:
           server: "{{ ntp_server }}"
           state: present
-  
+      
+      - name: Clock Timezone config
+        cisco.ios.ios_config:
+          lines:
+          - clock timezone YEKT 5 0
+          save_when: modified
