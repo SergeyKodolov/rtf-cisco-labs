@@ -5,7 +5,7 @@ Edge_router_224 ansible_host=10.40.76.103
 [lab_routers]
 R1 ansible_host=10.40.68.3
 R2 ansible_host=10.40.68.5
-R4 ansible_host=10.40.68.7
+R3 ansible_host=10.40.68.7
 R4 ansible_host=10.40.68.9
 R5 ansible_host=10.40.68.11
 R6 ansible_host=10.40.68.13
@@ -17,7 +17,7 @@ R10 ansible_host=10.40.68.21
 [lab_switches]
 SW1 ansible_host=10.40.68.4
 SW2 ansible_host=10.40.68.6
-SW4 ansible_host=10.40.68.8
+SW3 ansible_host=10.40.68.8
 SW4 ansible_host=10.40.68.10
 SW5 ansible_host=10.40.68.12
 SW6 ansible_host=10.40.68.14
