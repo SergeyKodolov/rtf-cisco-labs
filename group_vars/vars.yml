@@ -1,0 +1,3 @@
+---
+
+pass: "{{ vault_ansible_password }}"
