@@ -1,0 +1,20 @@
+---
+
+  - name: Setup archive configuration
+    hosts: all
+  
+    tasks:
+      - name: Create backup dir
+        cisco.ios.ios_command:
+          commands:
+            - command: mkdir flash:backup
+              prompt: Create directory filename [backup]?
+              answer: "
+              "
+            
+      #- name: Clock Timezone config
+      #  cisco.ios.ios_config:
+      #    lines:
+      #      - 
+      #    parent: archive
+      #    save_when: changed

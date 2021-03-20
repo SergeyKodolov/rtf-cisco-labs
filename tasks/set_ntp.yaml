@@ -13,14 +13,13 @@
         cisco.ios.ios_config:
           lines:
             - clock timezone YEKT 5 0
-          save_when: modified
+          save_when: changed
 
       - name: Check time
         cisco.ios.ios_command:
           commands:
             - show ntp status
             - show clock detail
-            - wr
         register: output
             
       - name: Print output
