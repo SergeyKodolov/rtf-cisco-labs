@@ -18,6 +18,6 @@
       when: inventory_hostname in groups["lab_switches"]
 
     - name: Save vlan.dat file
-      local_action: copy content={{ vlan }} dest=./backup/{{ inventory_hostname }}/vlan.dat
-      when: vlan.stdout != ""
+      local_action: copy content={{ vlan.stdout_lines[0] }} dest={{ playbook_dir }}/backup/{{ inventory_hostname }}/vlan.dat
+      when: vlan.stdout_lines[0] != ""
       
