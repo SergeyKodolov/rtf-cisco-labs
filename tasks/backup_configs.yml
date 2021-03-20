@@ -8,7 +8,12 @@
       cisco.ios.ios_config:
         backup: yes
         backup_options:
-          dir_path: ./backup/
-          filename: "{{ ansible_host }}.backup"
+          dir_path: ./backup/"{{ inventory_hostname }}"
+          filename: "{{ inventory_hostname }}.backup"
 
-    #- name: Save vlan.dat to ./backup/ dir
+    - name: Getting vlan.dat from switches
+      cisco.ios.ios_vlans:
+        running_config: "{{ lookup('file', './backup/{{ inventory_hostname }}/vlan.dat') }}"
+        state: parsed
+      when: inventory_hostname in groups["lab_switches"]
+      
