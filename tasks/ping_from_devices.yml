@@ -1,6 +1,6 @@
 ---
 
-- name: Ping from routers
+- name: Ping from devices
   hosts: all
 
   tasks:

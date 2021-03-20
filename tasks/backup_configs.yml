@@ -1,0 +1,14 @@
+---
+
+- name: Backup config and vlans 
+  hosts: all
+
+  tasks:
+    - name: Save configs to ./backup/ dir
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          dir_path: ./backup/
+          filename: "{{ ansible_host }}.backup"
+
+    #- name: Save vlan.dat to ./backup/ dir
