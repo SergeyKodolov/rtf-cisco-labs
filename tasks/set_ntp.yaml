@@ -20,7 +20,7 @@
           commands:
             - show ntp status
             - show clock details
-          register: output
+        register: output
             
       - name: Print output
         debug: var={{ output.stdout_lines }}
