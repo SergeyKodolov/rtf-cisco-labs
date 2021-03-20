@@ -1,0 +1,10 @@
+---
+
+  - name: Set NTP server
+    hosts: lab_equipment
+  
+    tasks:
+      - cisco.ios.ios_ntp:
+          server: "{{ ntp_server }}"
+          state: present
+  
