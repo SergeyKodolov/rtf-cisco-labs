@@ -11,13 +11,14 @@
           dir_path: ./backup/{{ inventory_hostname }}
           filename: "{{ inventory_hostname }}.backup"
 
-    - name: Create vlan.dat file
-      local_action: command touch {{ inventory_dir }}/backup/{{ inventory_hostname }}/vlan.dat
-      when: inventory_hostname in groups["lab_switches"]
-
     - name: Save vlans from switches
       cisco.ios.ios_vlans:
-        running_config: "{{ lookup('file', '{{ inventory_dir }}/backup/{{ inventory_hostname }}/vlan.dat') }}"
-        state: parsed
+        config:
+        state: gathered
+      register: vlan
+      when: inventory_hostname in groups["lab_switches"]
+
+    - name: Copy to vlan.dat file
+      local_action: copy content={{ vlan.before }} dest={{ inventory_dir }}/backup/{{ inventory_hostname }}/vlan.dat
       when: inventory_hostname in groups["lab_switches"]
       
