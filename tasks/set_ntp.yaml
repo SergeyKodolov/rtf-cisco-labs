@@ -19,7 +19,8 @@
         cisco.ios.ios_command:
           commands:
             - show ntp status
-            - show clock details
+            - show clock detail
+            - wr
         register: output
             
       - name: Print output
