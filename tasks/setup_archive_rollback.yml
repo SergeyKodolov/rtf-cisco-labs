@@ -12,11 +12,23 @@
               answer: "
               "
         register: result
-        failed_when: result.msg.find("(File exists)") != -1
+        failed_when: result.msg.find("(File exists)") == -1
             
-      #- name: Clock Timezone config
-      #  cisco.ios.ios_config:
-      #    lines:
-      #      - 
-      #    parent: archive
-      #    save_when: changed
+      - name: Archive config
+        cisco.ios.ios_config:
+          lines:
+            - path flash:/backup/$h-$t
+            - write-memory
+            - maximum 3
+          parents: archive
+          save_when: changed
+
+      - name: Archive logging config
+        cisco.ios.ios_config:
+          lines:
+            - logging enable
+            - hidekeys
+          parents: 
+            - archive
+            - log config
+          save_when: changed
