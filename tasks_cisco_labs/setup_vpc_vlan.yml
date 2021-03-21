@@ -7,7 +7,6 @@
     - name: F0/1 access VLAN 2n0
       cisco.ios.ios_config:
         lines:
-          - no switchport trunk allowed vlan {{ vpc_vlan }},299
           - switchport mode access
           - switchport access vlan {{ vpc_vlan }}
         parents: interface FastEthernet0/1
@@ -17,7 +16,6 @@
       cisco.ios.ios_config:
         lines:
           - switchport mode trunk
-          - no switchport trunk allowed vlan {{ vpc_vlan }},299
         parents: interface FastEthernet0/2
         save_when: changed
         
