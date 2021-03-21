@@ -1,0 +1,8 @@
+---
+
+  - name: Setup devices for 2.2.2.5 Lab
+    hosts: lab_equipment
+
+    tasks:
+      
+        
