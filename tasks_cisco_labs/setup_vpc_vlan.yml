@@ -12,6 +12,5 @@
             access:
               vlan: "{{ vpc_vlan }}"
           - name: FastEthernet0/2
-            mode: trunk
-        state: replaced      
+            mode: trunk              
         
