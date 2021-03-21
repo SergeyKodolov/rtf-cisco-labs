@@ -12,7 +12,7 @@
               answer: "
               "
         register: result
-        failed_when: result.msg.find("(File exists)") == -1
+        failed_when: False or result.msg.find("(File exists)") == -1
             
       - name: Archive config
         cisco.ios.ios_config:
