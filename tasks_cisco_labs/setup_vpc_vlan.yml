@@ -1,17 +1,17 @@
 ---
 
-  - name: Setup vPCs VLANSs on switches
-    hosts: lab_switches
+- name: Setup vPCs VLANSs on switches
+  hosts: lab_switches
 
-    tasks:
-      - name: F0/1 access VLAN 2n0 and F0/2 trunk
-        cisco.ios.ios_l2_interfaces:
-          config:
-            - name: FastEthernet0/1
-              mode: access
-              access:
-                vlan: "{{ vpc_vlan }}"
-            - name: FastEthernet0/2
-              mode: trunk
-        state: replaced      
+  tasks:
+    - name: F0/1 access VLAN 2n0 and F0/2 trunk
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: FastEthernet0/1
+            mode: access
+            access:
+              vlan: "{{ vpc_vlan }}"
+          - name: FastEthernet0/2
+            mode: trunk
+      state: replaced      
         
