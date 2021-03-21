@@ -10,7 +10,7 @@
           - no switchport trunk allowed vlan "{{ vpc_vlan }}",299
           - switchport mode access
           - switchport access vlan "{{ vpc_vlan }}"
-        parents: FastEthernet0/1
+        parents: interface FastEthernet0/1
         save_when: changed
 
     - name: F0/2 trunk
@@ -18,6 +18,6 @@
         lines:
           - switchport mode trunk
           - no switchport trunk allowed vlan "{{ vpc_vlan }}",299
-        parents: FastEthernet0/1
+        parents: interface FastEthernet0/2
         save_when: changed
         
