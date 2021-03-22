@@ -7,4 +7,4 @@
       - name: Copy startup-config to running-config
         cisco.ios.ios_command:
           commands: 
-            - command: configure replace flash:cisco-labs force
+            - command: configure replace nvram:startup-config force
