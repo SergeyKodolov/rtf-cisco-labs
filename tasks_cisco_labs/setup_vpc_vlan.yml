@@ -1,0 +1,21 @@
+---
+
+- name: Setup vPCs VLANSs on switches
+  hosts: lab_switches
+
+  tasks:
+    - name: F0/1 access VLAN 2n0
+      cisco.ios.ios_config:
+        lines:
+          - switchport mode access
+          - switchport access vlan {{ vpc_vlan }}
+        parents: interface FastEthernet0/1
+        save_when: changed
+
+    - name: F0/2 trunk
+      cisco.ios.ios_config:
+        lines:
+          - switchport mode trunk
+        parents: interface FastEthernet0/2
+        save_when: changed
+        

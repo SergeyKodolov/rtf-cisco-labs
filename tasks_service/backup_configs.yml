@@ -1,0 +1,24 @@
+---
+
+- name: Backup config and vlans 
+  hosts: all
+
+  tasks:
+    - name: Save configs to ./backup/ dir
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          dir_path: ./backup/{{ inventory_hostname }}
+          filename: "{{ inventory_hostname }}.backup"
+
+    - name: Save vlans from switches
+      cisco.ios.ios_vlans:
+        config:
+        state: gathered
+      register: vlan
+      when: inventory_hostname in groups["lab_switches"]
+
+    - name: Copy to vlan.dat file
+      local_action: copy content={{ vlan.gathered }} dest={{ inventory_dir }}/backup/{{ inventory_hostname }}/vlan.json
+      when: inventory_hostname in groups["lab_switches"]
+      

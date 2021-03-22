@@ -1,0 +1,12 @@
+---
+
+  - name: Create user student 
+    hosts: lab_equipment
+
+    tasks:
+      - name: Create user
+        cisco.ios.ios_user:
+          name: student
+          privilege: 2
+          configured_password: cisco-12345
+          password_type: secret

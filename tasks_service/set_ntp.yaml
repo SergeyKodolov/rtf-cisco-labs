@@ -1,0 +1,26 @@
+---
+
+  - name: Set NTP server
+    hosts: lab_equipment
+  
+    tasks:
+      - name: NTP server config
+        cisco.ios.ios_ntp:
+          server: "{{ ntp_server }}"
+          state: present
+      
+      - name: Clock Timezone config
+        cisco.ios.ios_config:
+          lines:
+            - clock timezone YEKT 5 0
+          save_when: changed
+
+      - name: Check time
+        cisco.ios.ios_command:
+          commands:
+            - show ntp status
+            - show clock detail
+        register: output
+            
+      - name: Print output
+        debug: var=output.stdout_lines
