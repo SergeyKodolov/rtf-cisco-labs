@@ -9,6 +9,7 @@
         lines:
           - privilege exec level 15 clear
           - privilege exec level 2 more system:running-config
+          - privilege exec level 2 show running-config
           - privilege exec level 2 configure terminal
           - privilege configure level 2 interface
           - privilege interface level 2 ip address 1.1.1.1 255.0.0.0 secondary

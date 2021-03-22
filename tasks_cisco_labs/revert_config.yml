@@ -1,0 +1,9 @@
+---
+
+  - name: Revert lab equipment initial configuration
+    hosts: lab_equipment
+
+    tasks:
+      - name: Copy startup-config to running-config
+        cisco.ios.ios_command:
+          commands: copy startup-config running-config
