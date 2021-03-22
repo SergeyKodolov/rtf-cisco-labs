@@ -7,3 +7,6 @@
       - name: Copy startup-config to running-config
         cisco.ios.ios_command:
           commands: copy startup-config running-config
+          prompt: Destination filename [running-config]?
+          answer: "
+          "
