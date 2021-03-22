@@ -7,7 +7,4 @@
       - name: Copy startup-config to running-config
         cisco.ios.ios_command:
           commands: 
-            - command: copy startup-config running-config
-              prompt: running-config
-              answer: '
-              '
+            - command: configure replace flash:cisco-labs force

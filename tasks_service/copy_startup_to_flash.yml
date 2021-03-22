@@ -1,0 +1,14 @@
+---
+
+  - name: Copy lab equipment startup-config to flash
+    hosts: all
+
+    tasks:
+      - name: Copy startup-config to flash
+        cisco.ios.ios_command:
+          commands: 
+            - command: copy startup-config flash:cisco-labs
+              prompt: cisco-labs
+              answer: '
+
+              '
