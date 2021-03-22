@@ -1,0 +1,4 @@
+---
+  
+  - name: Setup student privileges
+    hosts: lab_routers
