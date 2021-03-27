@@ -14,4 +14,6 @@
           - privilege configure level 2 interface
           - privilege configure level 2 ipv6 route
           - privilege configure level 2 do
+          - privilege configure level 2 ipv6 unicast-routing
+          - privilege interface level 2 ipv6 address
         save_when: changed
