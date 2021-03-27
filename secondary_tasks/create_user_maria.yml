@@ -1,0 +1,12 @@
+---
+
+- name: Create user admin_maria 
+  hosts: lab_equipment
+
+  tasks:
+    - name: Create user
+      cisco.ios.ios_user:
+      name: admin_maria
+      privilege: 15
+      configured_password: Cisco12345!
+      password_type: secret
