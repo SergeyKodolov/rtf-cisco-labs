@@ -1,0 +1,12 @@
+---
+
+  - name: Set ssh vty timeout o0
+    hosts: lab_routers
+  
+    tasks:
+      - name: Shutdown F0/0 interface
+        cisco.ios.ios_config:
+          lines:
+            - shut
+          parents: interface f0/0
+          save_when: changed
