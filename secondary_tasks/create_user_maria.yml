@@ -1,0 +1,14 @@
+---
+
+- name: Create user admin_maria 
+  hosts: lab_equipment
+  vars_files:
+    - /group_vars/lab_equipment/vars
+
+  tasks:
+    - name: Create user
+      cisco.ios.ios_user:
+      name: admin_maria
+      privilege: 15
+      configured_password: "{{pass_admin_maria}}"
+      password_type: secret
