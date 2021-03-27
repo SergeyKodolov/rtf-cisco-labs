@@ -1,0 +1,12 @@
+---
+
+- name: Set ssh vty timeout o0
+  hosts: lab_equipment
+
+  tasks:
+    - name: Set line vty 0 15 session-timeout 0
+      cisco.ios.ios_config:
+        lines:
+          - session-timeout 0
+        parents: line vty 0 15
+        save_when: changed
