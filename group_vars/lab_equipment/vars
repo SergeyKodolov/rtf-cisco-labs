@@ -1,0 +1,4 @@
+---
+pass_admin_maria: "{{vault_pass_admin_maria}}"
+
+#Cisco12345!
