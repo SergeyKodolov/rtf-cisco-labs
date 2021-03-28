@@ -2,6 +2,7 @@
 
 - name: Create user admin_maria 
   hosts: lab_equipment
+  
   vars_files:
     - /group_vars/lab_equipment/vars
 
