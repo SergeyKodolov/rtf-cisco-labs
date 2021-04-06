@@ -1,6 +1,7 @@
 [edge_routers]
 L2_router_344 ansible_host=10.40.83.3
 Edge_router_224 ansible_host=10.40.68.2
+L3_switch_224 ansible_host=10.40.68.23
 
 [lab_routers]
 R1 ansible_host=10.40.68.3
