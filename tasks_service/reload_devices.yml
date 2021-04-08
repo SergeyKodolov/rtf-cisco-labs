@@ -1,0 +1,8 @@
+- name: Reload cisco devices
+  cisco.ios.ios_command:
+    commands: 
+      - command: reload
+        prompt: cisco-labs
+        answer: '
+
+        '
