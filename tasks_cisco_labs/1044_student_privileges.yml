@@ -1,6 +1,6 @@
 ---
 - name: Revert lab equipment initial configuration
-  import_playbook: /tasks_service/revert_config.yml
+  import_playbook: ../tasks_service/revert_config.yml
 
 - name: Setup student privileges on switches
   hosts: lab_switches
@@ -11,9 +11,6 @@
         lines:
           - sdm prefer dual-ipv4-and-ipv6 default
         save_when: changed
-    
-    - name: Reload cisco devices
-      include: /tasks_service/reload_devices.yml   
 
     - name: Config privileges
       cisco.ios.ios_config:
@@ -22,8 +19,9 @@
           - privilege exec level 2 more system:running-config
           - privilege exec level 2 show running-config
           - privilege exec level 2 configure terminal
-          - privilege configure level 2 vlan
-          - privilege configure level 2 ip default-gateway
+          - privilege interface level 2 vlan
+          - privilege interface level 2 ip default-gateway
+          - privilege configure level 2 do
         save_when: changed         
 
 - name: Setup student privileges on routers
