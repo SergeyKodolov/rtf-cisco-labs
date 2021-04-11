@@ -1,8 +1,16 @@
-- name: Reload cisco devices
-  cisco.ios.ios_command:
-    commands: 
-      - command: reload
-        prompt: cisco-labs
-        answer: '
+---
 
-        '
+  - name: Reload cisco devices
+    hosts: lab_equipment
+
+    tasks:
+      - name: Reload cisco devices
+        cisco.ios.ios_command:
+          commands: 
+            - command: reload
+              prompt: cisco-labs
+              answer: '
+
+              '
+        vars:
+          ansible_commad_timeout: 240

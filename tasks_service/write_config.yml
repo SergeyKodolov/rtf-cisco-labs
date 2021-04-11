@@ -1,4 +1,10 @@
-- name: Save running config on cisco device
-  cisco.ios.ios_command:
-    commands: 
-      - command: write
+---
+
+  - name: Save running config on cisco device
+    hosts: lab_equipment
+
+    tasks:
+      - name: Save running config on cisco device
+        cisco.ios.ios_command:
+          commands: 
+           - command: write
