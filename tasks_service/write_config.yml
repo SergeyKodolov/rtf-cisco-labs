@@ -1,10 +1,14 @@
 ---
 
-  - name: Save running config on cisco device
+  - name: Save running config on cisco device (use "exec_command.yml" instead)
     hosts: lab_equipment
 
     tasks:
       - name: Save running config on cisco device
         cisco.ios.ios_command:
           commands: 
-           - command: write
+           - write
+          register: output
+
+      - name: Print output
+        debug: var=output.stdout[0]

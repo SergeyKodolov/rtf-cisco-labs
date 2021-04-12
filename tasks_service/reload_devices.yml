@@ -7,10 +7,8 @@
       - name: Reload cisco devices
         cisco.ios.ios_command:
           commands: 
-            - command: reload
-              prompt: cisco-labs
-              answer: '
+            - "reload in 1\ny"
+          register: output
 
-              '
-        vars:
-          ansible_commad_timeout: 240
+      - name: Print output
+        debug: var=output.stdout[0]

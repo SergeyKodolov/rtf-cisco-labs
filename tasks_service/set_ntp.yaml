@@ -23,4 +23,4 @@
         register: output
             
       - name: Print output
-        debug: var=output.stdout_lines
+        debug: var=output.stdout[0]
