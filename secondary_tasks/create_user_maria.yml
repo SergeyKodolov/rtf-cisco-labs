@@ -9,7 +9,7 @@
   tasks:
     - name: Create user
       cisco.ios.ios_user:
-      name: admin_maria
-      privilege: 15
-      configured_password: "{{pass_admin_maria}}"
-      password_type: secret
+        name: admin_maria
+        privilege: 15
+        configured_password: "{{pass_admin_maria}}"
+        password_type: secret
