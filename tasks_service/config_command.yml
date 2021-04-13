@@ -1,0 +1,26 @@
+---
+  - name: Execute config command
+    hosts: all
+
+    vars_prompt:
+      - name: command
+        prompt: Type command to execute
+        private: no 
+
+    tasks:
+      - name: Executing the command entered
+        cisco.ios.ios_config:
+          lines: "{{command}}"
+          save_when: changed
+        register: output
+
+      - name: Print output
+        debug: var=output
+        
+      - name: Write config
+        cisco.ios.ios_command:
+          commands: write
+        register: output
+
+      - name: Print output
+        debug: var=output.stdout[0]
