@@ -8,7 +8,7 @@
         cisco.ios.ios_command:
           commands: 
             - "reload in 1\ny"
-          register: output
+        register: output
 
       - name: Print output
         debug: var=output.stdout[0]
