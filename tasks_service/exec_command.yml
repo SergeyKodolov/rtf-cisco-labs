@@ -16,3 +16,6 @@
 
       - name: Print output
         debug: var=output.stdout[0]
+
+      #- name: Save output to files
+      #local_action: copy content={{output.stdout[0]}} dest={{inventory_dir}}/output/{{inventory_hostname}}.txt
